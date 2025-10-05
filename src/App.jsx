@@ -5,6 +5,10 @@ import './App.css'
 import ProfileCard from './componets/ProfileCard'
 import avatar from "./assets/avatar.png";
 import LightRays from './componets/LightRays.jsx'
+import InfiniteCarousel from './componets/InfiniteCarousel.jsx'
+import MagnetLines from './componets/MagnetLines.jsx'
+import StarBorder from './componets/StarBorder.jsx'
+import DecryptedText from './componets/DecryotedText.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,7 +29,11 @@ function App() {
         className="custom-rays"
       />
       <Inicio />
+      <div className='contenido'>
+        <MagnetLines/>
+      </div>
     </div>
+    
   )
 }
 
@@ -46,7 +54,7 @@ function LeftPanel(){
           avatarUrl={avatar}
           miniAvatarUrl={avatar}
           name="Alejandro Lara"
-          title="Software Engineer"
+          title=""
           handle="AlexLL8416"
           status="Online"
         />
@@ -57,11 +65,22 @@ function LeftPanel(){
 function RightPanel(){
   return(
     <div className='right'>
-      <h2>
-        <p>
-          Soy Alejandro Lara Lara, un estudiante de
-        </p>
-      </h2>
+      <StarBorder
+        as="div"
+        className="custom-class"
+        color="cyan"
+        speed="10s"
+        thickness={60}
+      >
+        <DecryptedText
+          animateOn='view'
+          text={"Soy Alejandro Lara Lara, estudiante del Doble Grado en Ingeniería Informática TI y Matemáticas en la Universidad de Sevilla. Me apasiona la Inteligencia Artificial y disfruto explorando cómo la tecnología puede resolver problemas complejos y abrir nuevas oportunidades. \n \n Me considero una persona autodidacta, perseverante y comprometida con cada proyecto. Trabajo con soltura tanto en equipo como de manera independiente, siempre con la determinación de alcanzar los objetivos que me propongo"}
+          revealDirection='start'
+          speed={70}
+          maxIterations={20}
+          parentClassName='texto-inicio'
+        />
+      </StarBorder>
     </div>
   )
 }

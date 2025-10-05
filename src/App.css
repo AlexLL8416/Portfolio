@@ -1,19 +1,20 @@
 /* --- ROOT --- */
 #root {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh; /* permite crecer con el contenido */
   margin: 0;
   padding: 0;
-  overflow: hidden; /* asegura que el fondo no se corte */
+  overflow-x: hidden; /* evita scroll horizontal, pero permite el vertical */
   text-align: center;
 }
 
 /* --- CONTENEDOR PRINCIPAL --- */
-.app-container {
+.app-containerr {
   position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh; /* permite que el contenido más largo active el scroll */
+  overflow-x: hidden;
+  overflow-y: auto; /* habilita el scroll vertical */
 }
 
 /* --- FONDO (LightRays) --- */
@@ -27,24 +28,35 @@
   pointer-events: none;
 }
 
-/* --- CONTENIDO (Inicio) --- */
+/* --- SECCIÓN DE INICIO --- */
 .containerInicio {
   position: relative;
-  z-index: 1; /* encima del fondo */
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* ocupa una "pantalla completa" */
   gap: 80px;
   background: transparent;
 }
 
-/* --- PANEL IZQUIERDO --- */
-.left {
-  flex: 0 0 50%;
+/* --- SECCIÓN DE ABAJO --- */
+.contenido {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent; 
+}
+
+/* --- PANEL IZQUIERDO --- */
+.left {
+  flex: 0 0 47%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(75px);
 }
 
 /* --- PANEL DERECHO --- */
@@ -56,11 +68,21 @@
   align-items: flex-start;
 }
 
+.texto-inicio{
+  width: 70vh;
+  padding: 5px;
+  font-size: 27px;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .containerInicio {
     flex-direction: column;
     justify-content: center;
+  }
+  .texto-inicio{
+    width: 45vh;
+    font-size: 20px;
   }
 
   .left,

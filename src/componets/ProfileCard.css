@@ -62,7 +62,7 @@
 
 .pc-card {
   height: 80svh;
-  max-height: 540px;
+  max-height: 650px;
   display: grid;
   aspect-ratio: 0.718;
   border-radius: var(--card-radius);
@@ -230,7 +230,7 @@
   background-image: radial-gradient(
     farthest-corner circle at var(--pointer-x) var(--pointer-y),
     hsl(248, 25%, 80%) 12%,
-    hsla(207, 40%, 30%, 0.8) 90%
+    hsla(207, 30%, 47%, 0.8) 90%
   );
   mix-blend-mode: overlay;
   filter: brightness(0.8) contrast(1.2);
