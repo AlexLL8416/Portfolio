@@ -63,6 +63,18 @@
   background: transparent; 
 }
 
+hr {
+  border: none;
+  height: 2px;
+  background-color: #ffffff; /* color de la línea */
+  width: 92%; /* ancho relativo */
+  margin: 50px auto; /* espacio arriba y abajo */
+  border-radius: 2px;
+  opacity: 0.7;
+  transform: translateY(-40px);
+}
+
+
 /* --- PANEL IZQUIERDO --- */
 .left {
   flex: 0 0 47%;

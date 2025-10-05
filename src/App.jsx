@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import ProfileCard from './componets/ProfileCard'
 import avatar from "./assets/avatar.png";
@@ -35,9 +33,8 @@ function App() {
         <MagnetLines/>
       </div>
       <Estudios/>
-      <div className='contenido'>
-        <MagnetLines/>
-      </div>
+      <hr/>
+      <Proyectos/>
     </div>
     
   )
@@ -84,7 +81,7 @@ function RightPanelInicio(){
         className="custom-class"
         color="cyan"
         speed="10s"
-        thickness={59}
+        thickness={65}
       >
         <DecryptedText
           animateOn='view'
@@ -124,7 +121,7 @@ function LeftPanelEstudios(){
         className="custom-class"
         color="white"
         speed="10s"
-        thickness={10}
+        thickness={20}
       >
         <DecryptedText
           animateOn='view'
@@ -202,6 +199,19 @@ function RightPanelEstudios(){
           Itinerario del Doble Grado
         </p>
       </div>
+    </div>
+  )
+}
+
+function Proyectos(){
+  return(
+    <div>
+      <TextType
+        text={["Proyectos","Proyectos"]}
+        typingSpeed={75}
+        pauseDuration={3000}
+        className='titulos'
+      />
     </div>
   )
 }
