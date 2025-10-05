@@ -35,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* ocupa una "pantalla completa" */
+  min-height: 88vh; /* ocupa una "pantalla completa" */
   gap: 80px;
   background: transparent;
 }
