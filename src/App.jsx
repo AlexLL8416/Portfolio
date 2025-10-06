@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, href } from "react-router-dom"
 import './App.css'
 import ProfileCard from './componets/ProfileCard'
-import avatar from "./assets/avatar.png";
+import avatar from "./assets/avatar.png"
 import LightRays from './componets/LightRays.jsx'
 import InfiniteCarousel from './componets/InfiniteCarousel.jsx'
 import MagnetLines from './componets/MagnetLines.jsx'
@@ -9,34 +10,57 @@ import StarBorder from './componets/StarBorder.jsx'
 import DecryptedText from './componets/DecryotedText.jsx'
 import TextType from './componets/TextTipe.jsx'
 import PixelTransition from './componets/PixelTransition.jsx'
+import PaginaGestor_Alimentos from "./pages/Gestor_Alimentos.jsx"
+import PaginaHand_Mouse from "./pages/Hand_Mouse.jsx"
+import PaginaPortfolio from "./pages/Portfolio.jsx"
+import LogoLoop from './componets/LogoLoop.jsx'
+
+const imageLogos = [
+  {src:"https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png", alt:"Python", href:"https://www.python.org/"},
+  {src:"https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/656px-Java_programming_language_logo.svg.png", alt:"Java", href:"https://www.java.com/es/"},
+  {src:"https://umangsoftware.com/wp-content/uploads/2020/05/SQL-logo.png", alt:"SQL", href:"https://www.sql.org/"},
+  {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png", alt:"HTML", href:"https://developer.mozilla.org/es/docs/Web/HTML"},
+  {src:"https://upload.wikimedia.org/wikipedia/commons/b/ba/Javascript_badge.svg", alt:"JavaScript", href:"https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/What_is_JavaScript"},
+  {src:"https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg", alt:"CSS", href:"https://developer.mozilla.org/es/docs/Web/CSS"},
+  {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png", alt:"React", href:"https://es.react.dev/"}
+];
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='app-containerr'>
-      <LightRays
-        raysOrigin="top-center"
-        raysColor="#ffffffff"
-        raysSpeed={0.5}
-        lightSpread={0.8}
-        rayLength={2}
-        fadeDistance={2}
-        followMouse={true}
-        mouseInfluence={0.1}
-        noiseAmount={0}
-        distortion={0}
-        className="custom-rays"
-      />
-      <Inicio />
-      <div className='contenido'>
-        <MagnetLines/>
+    <Routes>
+      <Route path='/' element={
+      <div className='app-containerr'>
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffffffff"
+          raysSpeed={1.5}
+          lightSpread={3}
+          rayLength={2}
+          fadeDistance={2}
+          saturation={0}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0}
+          distortion={0}
+          className="custom-rays"
+        />
+        <Inicio />
+        <div className='contenido'>
+          <MagnetLines/>
+        </div>
+        <Estudios/>
+        <hr/>
+        <Proyectos/>
+        <hr/>
+        <Contacto/>
       </div>
-      <Estudios/>
-      <hr/>
-      <Proyectos/>
-    </div>
-    
+      }/>
+      <Route path="/gestor_alimentos" element={<PaginaGestor_Alimentos />} />
+      <Route path="/hand_mouse" element={<PaginaHand_Mouse />} />
+      <Route path="/portfolio" element={<PaginaPortfolio />} />
+    </Routes>
   )
 }
 
@@ -170,8 +194,8 @@ function RightPanelEstudios(){
         <PixelTransition
           firstContent={
             <img
-              src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrb0fEtK5W9NVOuBgtjZswH_kFQ4idMfrLX4BUv9d5IUoGfMhd_NHYQj53uM4vYMJe6eFK5rJFGBZ7BnhVelCuRVUw9Oq-_l27JwUoNJQjQtNfjEWhkq9emGwtraT0y1CmPIZZxfA=s680-w680-h510-rw"
-              alt="ETSII"
+              src="https://matematicas.us.es/sites/matematicas/files/2020-08/117677810_919088065250550_7209895458029972169_n.jpg"
+              alt="Facultad de Matemáticas"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           }
@@ -212,6 +236,53 @@ function Proyectos(){
         pauseDuration={3000}
         className='titulos'
       />
+      <InfiniteCarousel className="carrusel"/>
+      
+      <LogoLoop
+        logos={imageLogos}
+        speed={120}
+        direction="left"
+        logoHeight={180}
+        gap={50}
+        pauseOnHover
+        scaleOnHover
+        className = "logoloop"
+      />
+    </div>
+  )
+}
+
+function Contacto(){
+  return(
+    <div>
+      <TextType
+        text={["Contacto","Contacto"]}
+        typingSpeed={75}
+        pauseDuration={3000}
+        className='titulos'
+      />
+      <div>
+        <div className='mail-linkedin'>
+          <p 
+            onClick={()=>{window.open("mailto:laralaraalejandro8416@gmail.com","_blank")}}
+            className='mail'
+          >
+            Email
+          </p>
+          <p 
+            onClick={()=>{window.open("https://www.linkedin.com/in/alejandro-lara-lara-461841384/","_blank")}}
+            className='linkedin'
+          >
+            Linkedin
+          </p>
+        </div>
+        <p 
+            onClick={()=>{window.open("https://github.com/AlexLL8416","_blank")}}
+            className='github'
+          >
+            Github
+          </p>
+      </div>
     </div>
   )
 }

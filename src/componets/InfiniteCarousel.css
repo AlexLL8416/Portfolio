@@ -1,7 +1,7 @@
 .carousel-container {
   overflow: hidden;
   width: 100%;
-  height: 100vh; /* o ajusta según tu diseño */
+  height: 80vh; /* o ajusta según tu diseño */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,4 +25,38 @@
   object-fit: cover;
   cursor: pointer;
   border-radius: 12px;
+}
+
+/* TABLETS / PANTALLAS MEDIANAS */
+@media (max-width: 1024px) {
+  .carousel-container {
+    height: 70vh; /* ajusta según tu diseño */
+  }
+
+  .carousel-card {
+    width: 50%; /* se muestran 2 imágenes a la vez */
+    flex-shrink: 0;
+  }
+
+  .carousel-card img {
+    width: 100%;
+    height: 80%;
+  }
+}
+
+/* MÓVILES */
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 60vh; /* ajusta la altura si quieres */
+  }
+
+  .carousel-card {
+    width: 100%; /* cada card ocupa todo el ancho del contenedor */
+    flex-shrink: 0;
+  }
+
+  .carousel-card img {
+    width: 100%; /* la imagen ocupa todo el card */
+    height: 80%; /* mantiene la proporción */
+  }
 }

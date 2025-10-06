@@ -1,42 +1,45 @@
-import { motion, useMotionValue, useAnimation, useTransform } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./InfiniteCarousel.css"
+import "./InfiniteCarousel.css";
 
 const images = [
-  { src: "/img1.jpg", link: "/pagina1" },
-  { src: "/img2.jpg", link: "/pagina2" },
+  { src: "/gestor_alimentos.png", link: "/gestor_alimentos" },
+  { src: "/hand_mouse.png", link: "/hand_mouse" },
+  { src: "/portfolio.png", link: "/portfolio" },
 ];
 
 const VISIBLE_CARDS = 3;
 
 export default function InfiniteCarousel() {
   const x = useMotionValue(0);
-  const controls = useAnimation();
   const navigate = useNavigate();
   const isDragging = useRef(false);
 
-  // 🔁 Duplicamos las imágenes para crear continuidad
+  // 🔁 muchas repeticiones para dar margen real al bucle
   const loopedImages = [...images, ...images, ...images, ...images, ...images];
 
   useEffect(() => {
     const cardWidth = window.innerWidth / VISIBLE_CARDS;
-    const totalWidth = cardWidth * images.length;
-    const maxOffset = totalWidth * (loopedImages.length / images.length - 1);
+    const baseWidth = cardWidth * images.length;
+    const totalWidth = cardWidth * loopedImages.length;
+
+    // ✅ colocamos el carrusel en el centro del conjunto
+    x.set(-baseWidth);
 
     const unsubscribe = x.onChange((latest) => {
-      // Si se pasa demasiado hacia la izquierda → reposiciona suavemente
-      if (latest <= -maxOffset + cardWidth) {
-        x.set(-totalWidth + cardWidth);
+      // Si se pasa demasiado hacia la izquierda → reubica hacia delante
+      if (latest <= -baseWidth * 2) {
+        x.set(latest + baseWidth);
       }
-      // Si se pasa demasiado hacia la derecha → reposiciona suavemente
-      if (latest >= 0) {
-        x.set(-totalWidth);
+      // Si se pasa demasiado hacia la derecha → reubica hacia atrás
+      else if (latest >= 0) {
+        x.set(latest - baseWidth);
       }
     });
 
     return () => unsubscribe();
-  }, [x, images.length]);
+  }, [x]);
 
   return (
     <div className="carousel-container">
@@ -45,24 +48,20 @@ export default function InfiniteCarousel() {
         drag="x"
         style={{ x }}
         dragConstraints={{ left: -Infinity, right: Infinity }}
-        animate={controls}
         transition={{ type: "spring", stiffness: 200, damping: 30 }}
         onDragStart={() => (isDragging.current = true)}
-        onDragEnd={() => {
-          setTimeout(() => (isDragging.current = false), 50);
-        }}
+        onDragEnd={() => setTimeout(() => (isDragging.current = false), 50)}
       >
         {loopedImages.map((img, index) => (
           <motion.div
             key={index}
             className="carousel-card"
             style={{ width: `calc(100vw / ${VISIBLE_CARDS})` }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => {
               if (!isDragging.current) navigate(img.link);
             }}
           >
-            <img src={img.src} alt={`slide-${index}`} />
+            <img src={img.src} alt={`slide-${index}`} draggable={false} />
           </motion.div>
         ))}
       </motion.div>
