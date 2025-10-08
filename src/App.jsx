@@ -14,6 +14,7 @@ import PaginaGestor_Alimentos from "./pages/Gestor_Alimentos.jsx"
 import PaginaHand_Mouse from "./pages/Hand_Mouse.jsx"
 import PaginaPortfolio from "./pages/Portfolio.jsx"
 import LogoLoop from './componets/LogoLoop.jsx'
+import Layout from './componets/Layout.jsx'
 
 const imageLogos = [
   {src:"https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png", alt:"Python", href:"https://www.python.org/"},
@@ -34,7 +35,7 @@ function App() {
       <div className='app-containerr'>
         <LightRays
           raysOrigin="top-center"
-          raysColor="#ffffffff"
+          raysColor="#ffffffb0"
           raysSpeed={1.5}
           lightSpread={3}
           rayLength={2}
@@ -46,15 +47,24 @@ function App() {
           distortion={0}
           className="custom-rays"
         />
-        <Inicio />
+        <Layout/>
+        <div id='inicio'>
+          <Inicio/>
+        </div>
         <div className='contenido'>
           <MagnetLines/>
         </div>
-        <Estudios/>
+        <div id='estudios'>
+          <Estudios/>
+        </div>
+        <div id='proyectos'>
         <hr/>
-        <Proyectos/>
+          <Proyectos/>
+        </div>
         <hr/>
-        <Contacto/>
+        <div id='contacto'>
+          <Contacto/>
+        </div>
       </div>
       }/>
       <Route path="/gestor_alimentos" element={<PaginaGestor_Alimentos />} />

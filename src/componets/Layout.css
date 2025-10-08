@@ -11,16 +11,23 @@
     margin-top: 1%;
     margin-left: 37.75vw;
     margin-right: 37.75vw;
-    background-color: #f0f0f0;
-    border-radius: 40%;
+    background-color: #f0f0f065;
+    border-radius: 30px;
     padding: 0.8vw 1vw;
+}
+
+.layout:hover{
+    box-shadow: 
+        0 0 10px #f0f0f0,
+        0 0 20px #f0f0f0;
+    background-color: #f0f0f04f;
 }
 
 .enlace{
     width: 5vw;
     background-color: rgb(88, 88, 88);
     font-size: medium;
-    border-radius: 39%;
+    border-radius: 20px;
     border: 2px solid #f0f0f0;
     outline: 2px solid rgb(88, 88, 88);
     outline-offset: 2px;

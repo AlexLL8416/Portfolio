@@ -26,6 +26,7 @@
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  filter: brightness(0.5);
 }
 
 /* --- SECCIÓN DE INICIO --- */
@@ -43,7 +44,7 @@
 .tituloInicio{
   width: 93vh;
   font-size: 60px;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .titulos{
