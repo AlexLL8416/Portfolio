@@ -1,11 +1,269 @@
-.fondo{
-    position: fixed !important;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    filter: brightness(0.7);
+/* --- FONDO --- */
+.fondo {
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  filter: brightness(0.7);
 }
 
-.contenido{
-    z-index: 1;
+/* --- CONTENIDO GENERAL --- */
+.contenido {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column; /* 🔥 asegura que todo vaya uno debajo del otro */
+  align-items: center;
+  gap: 80px;
+  padding-bottom: 60px;
+}
+
+/* --- TÍTULOS --- */
+.tituloInicio {
+  font-size: 60px;
+  margin-top: 120px;
+  margin-bottom: 7vh;
+  text-align: center;
+}
+
+.titulo {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* --- SECCIÓN DE INICIO --- */
+.inicio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  gap: 40px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Adaptable */
+}
+
+/* --- IMAGEN --- */
+.imgInicio {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imgInicio img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  filter: opacity(0.95);
+}
+
+.enlaceRepo{
+    font-size: xx-large;
+    cursor: pointer;
+    background-color: #78a7ffb6;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.enlaceRepo:hover{
+    transform: scale(1.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* --- TEXTO --- */
+.textoInicio {
+  flex: 1;
+  background-color: #5f5f5fbd;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: white;
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- SEPARADOR --- */
+.separador {
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(to right, #0059ff, #61f8f1);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* --- CONTACTO --- */
+
+.mail-linkedin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vw; /* opcional: límite máximo */
+  margin-inline: auto; /* centra horizontalmente sin usar 25% */
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
+
+
+.mail,
+.linkedin{
+  display: inline-block;
+  font-size: xx-large;
+  cursor: pointer;
+  transition: all 0.3s;
+  transform-origin: center;
+}
+
+.mail:hover{
+  color: #fff;
+  transform: scale(1.75);
+  text-shadow: 
+    0 0 5px #ff0000,
+    0 0 10px #ff0000,
+    0 0 20px #ff0000,
+    0 0 40px #ff0000;
+}
+
+.linkedin:hover{
+  color: #fff;
+  transform: scale(1.75);
+  text-shadow: 
+    0 0 5px #0A66C2,
+    0 0 10px #0A66C2,
+    0 0 20px #0A66C2,
+    0 0 40px #0A66C2;
+}
+
+.github{
+  font-size: xx-large;
+  margin-bottom: 5%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.github:hover{
+  color: #d3a1ff;
+  transform: scale(1.75);
+  text-shadow: 
+    0 0 5px #8a2be2,
+    0 0 10px #0077ff,  
+    0 0 20px #8a2be2,
+    0 0 40px #0077ff;
+}
+
+/* 📱 --- RESPONSIVE DESIGN --- */
+
+/* --- Tablets (pantallas medianas) --- */
+@media (max-width: 1024px) {
+  .tituloInicio {
+    font-size: 45px;
+    margin-top: 80px;
+  }
+
+  .titulo {
+    font-size: 38px;
+  }
+
+  .inicio {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .imgInicio {
+    flex: 0 0 70%;
+  }
+
+  .imgInicio img {
+    max-width: 500px;
+  }
+
+  .textoInicio {
+    width: 85%;
+    font-size: 1.1rem;
+  }
+
+  .mail-linkedin {
+    width: 70vw;
+  }
+}
+
+/* --- Móviles grandes (pantallas pequeñas) --- */
+@media (max-width: 768px) {
+  .tituloInicio {
+    font-size: 38px;
+    margin-top: 60px;
+  }
+
+  .titulo {
+    font-size: 32px;
+  }
+
+  .inicio {
+    width: 95vw;
+    gap: 25px;
+  }
+
+  .imgInicio {
+    flex: 0 0 90%;
+  }
+
+  .imgInicio img {
+    max-width: 400px;
+  }
+
+  .textoInicio {
+    width: 90%;
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .mail-linkedin {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .mail,
+  .linkedin,
+  .github {
+    font-size: x-large;
+  }
+}
+
+/* --- Móviles pequeños (pantallas muy estrechas) --- */
+@media (max-width: 480px) {
+  .tituloInicio {
+    font-size: 28px;
+    margin-top: 40px;
+  }
+
+  .titulo {
+    font-size: 24px;
+  }
+
+  .imgInicio img {
+    max-width: 300px;
+  }
+
+  .textoInicio {
+    width: 95%;
+    font-size: 0.95rem;
+  }
+
+  .mail-linkedin {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .mail,
+  .linkedin,
+  .github {
+    font-size: large;
+  }
 }
