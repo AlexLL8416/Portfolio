@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, href } from "react-router-dom"
+import { useState, useEffect} from 'react'
+import { useLocation, Routes, Route, href } from "react-router-dom"
 import './App.css'
 import ProfileCard from './componets/ProfileCard'
 import avatar from "./assets/avatar.png"
@@ -30,48 +30,64 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Routes>
-      <Route path='/' element={
-      <div className='app-containerr'>
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#ffffffb0"
-          raysSpeed={1.5}
-          lightSpread={3}
-          rayLength={2}
-          fadeDistance={2}
-          saturation={0}
-          followMouse={true}
-          mouseInfluence={0.1}
-          noiseAmount={0}
-          distortion={0}
-          className="custom-rays"
-        />
-        <Layout/>
-        <div id='inicio'>
-          <Inicio/>
+    <>
+    <ScrollToTop/>
+      <Routes>
+        <Route path='/' element={
+        <div className='app-containerr'>
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#ffffffb0"
+            raysSpeed={1.5}
+            lightSpread={3}
+            rayLength={2}
+            fadeDistance={2}
+            saturation={0}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0}
+            distortion={0}
+            className="custom-rays"
+          />
+          <Layout/>
+          <div id='inicio'>
+            <Inicio/>
+          </div>
+          <div className='contenido'>
+            <MagnetLines/>
+          </div>
+          <div id='estudios'>
+            <Estudios/>
+          </div>
+          <div id='proyectos'>
+          <hr/>
+            <Proyectos/>
+          </div>
+          <hr/>
+          <div id='contacto'>
+            <Contacto/>
+          </div>
         </div>
-        <div className='contenido'>
-          <MagnetLines/>
-        </div>
-        <div id='estudios'>
-          <Estudios/>
-        </div>
-        <div id='proyectos'>
-        <hr/>
-          <Proyectos/>
-        </div>
-        <hr/>
-        <div id='contacto'>
-          <Contacto/>
-        </div>
-      </div>
-      }/>
-      <Route path="/gestor_alimentos" element={<PaginaGestor_Alimentos />} />
-      <Route path="/hand_mouse" element={<PaginaHand_Mouse />} />
-      <Route path="/portfolio" element={<PaginaPortfolio />} />
-    </Routes>
+        }/>
+        <Route path="/gestor_alimentos" element={<PaginaGestor_Alimentos />} />
+        <Route path="/hand_mouse" element={<PaginaHand_Mouse />} />
+        <Route path="/portfolio" element={<PaginaPortfolio />} />
+      </Routes>
+  </>
   )
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, [pathname]);
+
+  return null;
 }
 
 function Inicio(){
