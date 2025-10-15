@@ -268,7 +268,7 @@ function Proyectos(){
       
       <LogoLoop
         logos={imageLogos}
-        speed={120}
+        speed={50}
         direction="left"
         logoHeight={180}
         gap={50}

@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./InfiniteCarousel.css";
@@ -9,7 +9,8 @@ const images = [
   { src: "/portfolio.png", link: "/portfolio" },
 ];
 
-const VISIBLE_CARDS = 3;
+const VISIBLE_CARDS = 2.5;
+const AUTO_SCROLL_SPEED = 0.25;
 
 export default function InfiniteCarousel() {
   const x = useMotionValue(0);
@@ -17,7 +18,7 @@ export default function InfiniteCarousel() {
   const isDragging = useRef(false);
 
   // 🔁 muchas repeticiones para dar margen real al bucle
-  const loopedImages = [...images, ...images, ...images, ...images, ...images];
+  const loopedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images];
 
   useEffect(() => {
     const cardWidth = window.innerWidth / VISIBLE_CARDS;
@@ -40,6 +41,12 @@ export default function InfiniteCarousel() {
 
     return () => unsubscribe();
   }, [x]);
+
+  useAnimationFrame((t, delta) => {
+    if (!isDragging.current) {
+      x.set(x.get() - AUTO_SCROLL_SPEED); // mueve hacia la izquierda
+    }
+  });
 
   return (
     <div className="carousel-container">
