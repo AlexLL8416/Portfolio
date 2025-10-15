@@ -60,7 +60,7 @@
   filter: opacity(0.95);
 }
 
-.enlaceRepo{
+.enlaceRepoG{
     font-size: xx-large;
     cursor: pointer;
     background-color: #78a7ffb6;
@@ -70,13 +70,13 @@
     transition: all 0.3s;
 }
 
-.enlaceRepo:hover{
+.enlaceRepoG:hover{
     transform: scale(1.15);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* --- TEXTO --- */
-.textoInicio {
+.textoInicioG {
   flex: 1;
   background-color: #5f5f5fbd;
   font-size: 1.25rem;

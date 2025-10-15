@@ -49,10 +49,10 @@ function Inicio() {
       <div className="inicio">
         <div className="imgInicio">
           <img src={diagrama} alt="Diagrama base de datos" />
-          <p className="enlaceRepo" onClick={()=>{window.open("https://github.com/AlexLL8416/Gestor-Alimentos","_blank")}}>Enlace del proyecto</p>
+          <p className="enlaceRepoG" onClick={()=>{window.open("https://github.com/AlexLL8416/Gestor-Alimentos","_blank")}}>Enlace del proyecto</p>
         </div>
 
-        <div className="textoInicio">
+        <div className="textoInicioG">
           <p>
             Este proyecto es una <strong>API REST construida con FastAPI</strong> que
             permite gestionar alimentos, recetas y tiendas. Utiliza{" "}
