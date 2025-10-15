@@ -6,7 +6,6 @@ function OverlayPages() {
 
   const handleScroll = (sectionId) => {
     if (sectionId === "inicio") {
-      // 👇 Esto te lleva a la página principal ("/")
       navigate("/");
     } else {
       const section = document.getElementById(sectionId);

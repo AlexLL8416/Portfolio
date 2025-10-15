@@ -2,7 +2,8 @@ import { useState, useEffect} from 'react'
 import { useLocation, Routes, Route, href } from "react-router-dom"
 import './App.css'
 import ProfileCard from './componets/ProfileCard'
-import avatar from "./assets/avatar.png"
+import avatarGra from "./assets/avatarGrande.png"
+import avatarPeq from "./assets/avatar.png"
 import LightRays from './componets/LightRays.jsx'
 import InfiniteCarousel from './componets/InfiniteCarousel.jsx'
 import MagnetLines from './componets/MagnetLines.jsx'
@@ -15,6 +16,7 @@ import PaginaHand_Mouse from "./pages/Hand_Mouse.jsx"
 import PaginaPortfolio from "./pages/Portfolio.jsx"
 import LogoLoop from './componets/LogoLoop.jsx'
 import Layout from './componets/Layout.jsx'
+import Contacto from './componets/Contacto.jsx'
 
 const imageLogos = [
   {src:"https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png", alt:"Python", href:"https://www.python.org/"},
@@ -111,8 +113,8 @@ function LeftPanelInicio(){
   return(
     <div className='left'>
         <ProfileCard
-          avatarUrl={avatar}
-          miniAvatarUrl={avatar}
+          avatarUrl={avatarGra}
+          miniAvatarUrl={avatarPeq}
           name="Alejandro Lara"
           title=""
           handle="AlexLL8416"
@@ -278,40 +280,7 @@ function Proyectos(){
   )
 }
 
-function Contacto(){
-  return(
-    <div>
-      <TextType
-        text={["Contacto","Contacto"]}
-        typingSpeed={75}
-        pauseDuration={3000}
-        className='titulos'
-      />
-      <div>
-        <div className='mail-linkedin'>
-          <p 
-            onClick={()=>{window.open("mailto:laralaraalejandro8416@gmail.com","_blank")}}
-            className='mail'
-          >
-            Email
-          </p>
-          <p 
-            onClick={()=>{window.open("https://www.linkedin.com/in/alejandro-lara-lara-461841384/","_blank")}}
-            className='linkedin'
-          >
-            Linkedin
-          </p>
-        </div>
-        <p 
-            onClick={()=>{window.open("https://github.com/AlexLL8416","_blank")}}
-            className='github'
-          >
-            Github
-          </p>
-      </div>
-    </div>
-  )
-}
+
 
 export default App
 

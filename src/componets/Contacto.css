@@ -1,0 +1,46 @@
+.mail,
+.linkedin{
+  display: inline-block;
+  font-size: 35px;
+  cursor: pointer;
+  transition: all 0.3s;
+  transform-origin: center;
+  margin-bottom: 5%;
+}
+
+.mail:hover{
+  color: #fff;
+  transform: scale(1.75);
+  text-shadow: 
+    0 0 5px #ff0000,
+    0 0 10px #ff0000,
+    0 0 20px #ff0000,
+    0 0 40px #ff0000;
+}
+
+.linkedin:hover{
+  color: #fff;
+  transform: scale(1.75);
+  text-shadow: 
+    0 0 5px #0A66C2,
+    0 0 10px #0A66C2,
+    0 0 20px #0A66C2,
+    0 0 40px #0A66C2;
+}
+
+.github{
+  font-size: 35px;
+  margin-bottom: 5%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.github:hover{
+  color: #d3a1ff;
+  transform: scale(1.75);
+  text-shadow: 
+    0 0 5px #8a2be2,
+    0 0 10px #0077ff,  
+    0 0 20px #8a2be2,
+    0 0 40px #0077ff;
+}

@@ -88,9 +88,9 @@
 }
 
 /* --- SEPARADOR --- */
-.separador {
-  width: 80%;
-  height: 3px;
+.separadorG {
+  width: 87%;
+  height: 5px;
   background: linear-gradient(to right, #0059ff, #61f8f1);
   border-radius: 2px;
   opacity: 0.8;
@@ -108,8 +108,6 @@
   margin-bottom: 8%;
 }
 
-
-
 .mail,
 .linkedin{
   display: inline-block;
@@ -117,43 +115,6 @@
   cursor: pointer;
   transition: all 0.3s;
   transform-origin: center;
-}
-
-.mail:hover{
-  color: #fff;
-  transform: scale(1.75);
-  text-shadow: 
-    0 0 5px #ff0000,
-    0 0 10px #ff0000,
-    0 0 20px #ff0000,
-    0 0 40px #ff0000;
-}
-
-.linkedin:hover{
-  color: #fff;
-  transform: scale(1.75);
-  text-shadow: 
-    0 0 5px #0A66C2,
-    0 0 10px #0A66C2,
-    0 0 20px #0A66C2,
-    0 0 40px #0A66C2;
-}
-
-.github{
-  font-size: xx-large;
-  margin-bottom: 5%;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.github:hover{
-  color: #d3a1ff;
-  transform: scale(1.75);
-  text-shadow: 
-    0 0 5px #8a2be2,
-    0 0 10px #0077ff,  
-    0 0 20px #8a2be2,
-    0 0 40px #0077ff;
 }
 
 /* 📱 --- RESPONSIVE DESIGN --- */

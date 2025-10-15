@@ -4,6 +4,7 @@ import TextType from "../componets/TextTipe";
 import diagrama from "../assets/diagrama_gest_a.png";
 import GaleriaCodigoGestorA from "../componets/GaleriaCodigoGestorA";
 import OverlayPages from "../componets/OverlayPages";
+import Contacto from "../componets/Contacto";
 
 function PaginaGestor_Alimentos() {
   return (
@@ -22,11 +23,11 @@ function PaginaGestor_Alimentos() {
         <div id="proyecto">
           <Inicio/>
         </div>
-        <div className="separador"></div>
+        <div className="separadorG"></div>
         <div id="codigo">
           <Codigo />
         </div>
-        <div className="separador"></div>
+        <div className="separadorG"></div>
         <div id="contacto">
           <Contacto />
         </div>
@@ -91,41 +92,6 @@ function Codigo() {
       <GaleriaCodigoGestorA />
     </div>
   );
-}
-
-function Contacto(){
-  return(
-    <div>
-      <TextType
-        text={["Contacto","Contacto"]}
-        typingSpeed={75}
-        pauseDuration={3000}
-        className='titulo'
-      />
-      <div>
-        <div className='mail-linkedin'>
-          <p 
-            onClick={()=>{window.open("mailto:laralaraalejandro8416@gmail.com","_blank")}}
-            className='mail'
-          >
-            Email
-          </p>
-          <p 
-            onClick={()=>{window.open("https://www.linkedin.com/in/alejandro-lara-lara-461841384/","_blank")}}
-            className='linkedin'
-          >
-            Linkedin
-          </p>
-        </div>
-        <p 
-            onClick={()=>{window.open("https://github.com/AlexLL8416","_blank")}}
-            className='github'
-          >
-            Github
-          </p>
-      </div>
-    </div>
-  )
 }
 
 export default PaginaGestor_Alimentos;

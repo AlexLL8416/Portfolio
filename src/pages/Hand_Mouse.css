@@ -22,6 +22,14 @@
   text-align: center;
 }
 
+.separador{
+    width: 87%;
+    height: 5px;
+    background: linear-gradient(to right, #5cbb33, #78f343,#ffffff);
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
 .inicio{
     display: flex;
     align-items: center;
@@ -52,6 +60,13 @@
     flex-direction: column;
 }
 
+.video{
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid #7eff4756;
+}
+
 .enlaceRepo{
     font-size: xx-large;
     cursor: pointer;
@@ -65,4 +80,51 @@
 .enlaceRepo:hover{
     transform: scale(1.15);
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.819);
+}
+
+/*-- CÓDIGO --*/
+
+.codigoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap; 
+  margin-bottom: 5%;
+}
+
+.codigoImagen {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.codigoImagen img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ffffff80;
+  border: 5px solid #ffffff56;
+}
+
+.codigoTexto {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: x-large;
+  line-height: 1.6;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #adc5d3de;
+  padding: 0px 20px;
+  box-shadow: 0 0 10px #ffffff80;
+  border: 3px solid #ffffff56;
+  border-radius: 25px;
 }
