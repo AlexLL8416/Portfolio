@@ -9,7 +9,7 @@ import Contacto from "../componets/Contacto";
 function PaginaGestor_Alimentos() {
   return (
     <div className="pagina-gestor">
-      <div className="fondo">
+      <div className="fondoG">
         <LiquidChrome
           baseColor={[0, 0.1, 0.2]}
           speed={0.1}
@@ -19,7 +19,7 @@ function PaginaGestor_Alimentos() {
       </div>
       <OverlayPages/>
 
-      <div className="contenido">
+      <div className="contenidoG">
         <div id="proyecto">
           <Inicio/>
         </div>
@@ -43,11 +43,11 @@ function Inicio() {
         text={["Gestor de Alimentos", "API REST con FastAPI", "SQLAlchemy"]}
         typingSpeed={75}
         pauseDuration={3000}
-        className="tituloInicio"
+        className="tituloInicioG"
       />
 
-      <div className="inicio">
-        <div className="imgInicio">
+      <div className="inicioG">
+        <div className="imgInicioG">
           <img src={diagrama} alt="Diagrama base de datos" />
           <p className="enlaceRepoG" onClick={()=>{window.open("https://github.com/AlexLL8416/Gestor-Alimentos","_blank")}}>Enlace del proyecto</p>
         </div>
@@ -87,7 +87,7 @@ function Codigo() {
         text={["Código", "SQLAlchemy"]}
         typingSpeed={75}
         pauseDuration={6000}
-        className="titulo"
+        className="tituloG"
       />
       <GaleriaCodigoGestorA />
     </div>
