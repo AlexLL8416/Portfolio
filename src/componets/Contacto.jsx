@@ -11,23 +11,23 @@ function Contacto(){
         className='titulos'
       />
       <div>
-        <div className='mail-linkedin'>
+        <div className='mail-linkedinC'>
           <p 
             onClick={()=>{window.open("mailto:laralaraalejandro8416@gmail.com","_blank")}}
-            className='mail'
+            className='mailC'
           >
             Email
           </p>
           <p 
             onClick={()=>{window.open("https://www.linkedin.com/in/alejandro-lara-lara-461841384/","_blank")}}
-            className='linkedin'
+            className='linkedinC'
           >
             Linkedin
           </p>
         </div>
         <p 
             onClick={()=>{window.open("https://github.com/AlexLL8416","_blank")}}
-            className='github'
+            className='githubC'
           >
             Github
           </p>

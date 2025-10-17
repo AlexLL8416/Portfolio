@@ -1,7 +1,7 @@
 import LiquidChrome from "../componets/LiquidChrome";
 import "./Gestor_Alimentos.css";
 import TextType from "../componets/TextTipe";
-import diagrama from "../assets/diagrama_gest_a.png";
+import diagrama from "../assets/diagrama_gest_a.webp";
 import GaleriaCodigoGestorA from "../componets/GaleriaCodigoGestorA";
 import OverlayPages from "../componets/OverlayPages";
 import Contacto from "../componets/Contacto";

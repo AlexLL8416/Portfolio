@@ -3,13 +3,13 @@ import FaultyTerminal from "../componets/FaultyTerminal"
 import OverlayPages from "../componets/OverlayPages"
 import TextType from "../componets/TextTipe"
 import video from "../assets/video.mp4"
-import deteccionMano from "../assets/inicioCapturaYDetectarManos.png"
-import posiciones from "../assets/posiciones.png"
-import calibracion1 from "../assets/calibracion.png" 
-import calibracion2 from "../assets/calibracion2.png"
-import gestos from "../assets/detectarGesto.png"
-import raton from "../assets/moverRaton.png"
-import aplicarGesto from "../assets/gestionarGestos.png"
+import deteccionMano from "../assets/inicioCapturaYDetectarManos.webp"
+import posiciones from "../assets/posiciones.webp"
+import calibracion1 from "../assets/calibracion.webp" 
+import calibracion2 from "../assets/calibracion2.webp"
+import gestos from "../assets/detectarGesto.webp"
+import raton from "../assets/moverRaton.webp"
+import aplicarGesto from "../assets/gestionarGestos.webp"
 import Contacto from "../componets/Contacto"
 
 function PaginaHand_Mouse(){
@@ -17,12 +17,12 @@ function PaginaHand_Mouse(){
         <div className="pagina-hand-mouse">
             <div className="fondoH">
                 <FaultyTerminal
-                    scale={0.8}
-                    gridMul={[2, 1]}
-                    digitSize={0.8}
+                    scale={0.9}
+                    gridMul={[1.5, 0.8]}
+                    digitSize={1}
                     timeScale={0.1}
                     pause={false}
-                    scanlineIntensity={1}
+                    scanlineIntensity={0.5}
                     glitchAmount={0}
                     flickerAmount={0}
                     noiseAmp={0.5}

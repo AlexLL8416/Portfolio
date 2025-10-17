@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./GaleriaCodigoGestorA.css";
 
 // 🖼️ Importa las imágenes directamente
-import imgModels from "../assets/models.png";
-import imgCrud from "../assets/crud.png";
-import imgSchemas from "../assets/schemas.png";
-import imgMain from "../assets/main.png";
+import imgModels from "../assets/models.webp";
+import imgCrud from "../assets/crud.webp";
+import imgSchemas from "../assets/schemas.webp";
+import imgMain from "../assets/main.webp";
 
 function GaleriaCodigoGestorA() {
   const items = [

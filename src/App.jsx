@@ -2,8 +2,8 @@ import { useState, useEffect} from 'react'
 import { useLocation, Routes, Route, href } from "react-router-dom"
 import './App.css'
 import ProfileCard from './componets/ProfileCard'
-import avatarGra from "./assets/avatarGrande.png"
-import avatarPeq from "./assets/avatar.png"
+import avatarGra from "./assets/avatarGrande.webp"
+import avatarPeq from "./assets/avatar.webp"
 import LightRays from './componets/LightRays.jsx'
 import InfiniteCarousel from './componets/InfiniteCarousel.jsx'
 import MagnetLines from './componets/MagnetLines.jsx'
@@ -96,7 +96,7 @@ function Inicio(){
   return (
     <div>
       <TextType
-        text={["Portfolio de Alejandro Lara Lara","Alejandro Lara Lara"]}
+        text={["Portfolio","Alejandro Lara Lara"]}
         typingSpeed={75}
         pauseDuration={3000}
         className='tituloInicio'
@@ -152,7 +152,7 @@ function Estudios(){
   return(
     <div>
       <TextType
-        text={["Estudios","Doble Grado","Ingeniería Informática + Matemáticas"]}
+        text={["Estudios","Doble Grado","Ingeniería Informática","Matemáticas"]}
         typingSpeed={75}
         pauseDuration={3000}
         className='titulos'

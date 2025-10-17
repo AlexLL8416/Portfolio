@@ -44,3 +44,50 @@
         0 0 10px #f0f0f0,
         0 0 20px #f0f0f0;
 }
+
+/*-- RESPONSIVE --*/
+
+/* Pantallas medianas (tablets, 1024px o menos) */
+@media (max-width: 1024px) {
+    .layout {
+        margin-left: 30vw;
+        margin-right: 30vw;
+        padding: 1vw 1.5vw;
+        gap: 2vw;
+    }
+
+    .enlace {
+        width: 7vw;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas pequeñas (móviles grandes, 768px o menos) */
+@media (max-width: 768px) {
+    .layout {
+        margin-left: 20vw;
+        margin-right: 20vw;
+        padding: 1.5vw 2vw;
+        gap: 3vw;
+    }
+
+    .enlace {
+        width: 10vw;
+        font-size: 0.65rem;
+    }
+}
+
+/* Pantallas muy pequeñas (móviles compactos, 480px o menos) */
+@media (max-width: 480px) {
+    .layout {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        padding: 2vw 3vw;
+        gap: 4vw;
+    }
+
+    .enlace {
+        width: 18vw;
+        font-size: 0.7rem;
+    }
+}

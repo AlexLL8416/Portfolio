@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import "./InfiniteCarousel.css";
 
 const images = [
-  { src: "/gestor_alimentos.png", link: "/gestor_alimentos" },
-  { src: "/hand_mouse.png", link: "/hand_mouse" },
-  { src: "/portfolio.png", link: "/portfolio" },
+  { src: "/gestor_alimentos.webp", link: "/gestor_alimentos" },
+  { src: "/hand_mouse.webp", link: "/hand_mouse" },
+  { src: "/portfolio.webp", link: "/portfolio" },
 ];
 
 const VISIBLE_CARDS = 2.5;
@@ -17,7 +17,6 @@ export default function InfiniteCarousel() {
   const navigate = useNavigate();
   const isDragging = useRef(false);
 
-  // 🔁 muchas repeticiones para dar margen real al bucle
   const loopedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images];
 
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function InfiniteCarousel() {
     const baseWidth = cardWidth * images.length;
     const totalWidth = cardWidth * loopedImages.length;
 
-    // ✅ colocamos el carrusel en el centro del conjunto
     x.set(-baseWidth);
 
     const unsubscribe = x.onChange((latest) => {

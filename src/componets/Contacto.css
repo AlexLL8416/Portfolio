@@ -1,16 +1,34 @@
-.mail,
-.linkedin{
+.mail-linkedinC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vw; /* opcional: límite máximo */
+  margin-inline: auto; /* centra horizontalmente sin usar 25% */
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
+.mailC,
+.linkedinC{
   display: inline-block;
-  font-size: 35px;
+  font-size: xx-large;
   cursor: pointer;
   transition: all 0.3s;
   transform-origin: center;
-  margin-bottom: 5%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  box-shadow:
+      0 4px 30px rgba(255, 255, 255, 0.1),
+      0 0 10px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
 }
 
-.mail:hover{
+.mailC:hover{
   color: #fff;
-  transform: scale(1.75);
+  transform: scale(1.50);
   text-shadow: 
     0 0 5px #ff0000,
     0 0 10px #ff0000,
@@ -18,9 +36,9 @@
     0 0 40px #ff0000;
 }
 
-.linkedin:hover{
+.linkedinC:hover{
   color: #fff;
-  transform: scale(1.75);
+  transform: scale(1.50);
   text-shadow: 
     0 0 5px #0A66C2,
     0 0 10px #0A66C2,
@@ -28,16 +46,26 @@
     0 0 40px #0A66C2;
 }
 
-.github{
+.githubC{
+  display: inline-block;
   font-size: 35px;
   margin-bottom: 5%;
   cursor: pointer;
   transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  box-shadow:
+      0 4px 30px rgba(255, 255, 255, 0.1),
+      0 0 10px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
 }
 
-.github:hover{
+.githubC:hover{
   color: #d3a1ff;
-  transform: scale(1.75);
+  transform: scale(1.50);
   text-shadow: 
     0 0 5px #8a2be2,
     0 0 10px #0077ff,  
