@@ -96,135 +96,86 @@
   opacity: 0.8;
 }
 
-/* --- CONTACTO --- */
-
-.mail-linkedin {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50vw; /* opcional: límite máximo */
-  margin-inline: auto; /* centra horizontalmente sin usar 25% */
-  margin-top: 5%;
-  margin-bottom: 8%;
-}
-
-.mail,
-.linkedin{
-  display: inline-block;
-  font-size: xx-large;
-  cursor: pointer;
-  transition: all 0.3s;
-  transform-origin: center;
-}
-
 /* 📱 --- RESPONSIVE DESIGN --- */
 
 /* --- Tablets (pantallas medianas) --- */
 @media (max-width: 1024px) {
-  .tituloInicio {
+  .tituloInicioG {
     font-size: 45px;
     margin-top: 80px;
   }
 
-  .titulo {
+  .tituloG {
     font-size: 38px;
   }
 
-  .inicio {
+  .inicioG {
     flex-direction: column;
     gap: 30px;
   }
 
-  .imgInicio {
+  .imgInicioG {
     flex: 0 0 70%;
   }
 
-  .imgInicio img {
+  .imgInicioG img {
     max-width: 500px;
   }
 
-  .textoInicio {
+  .textoInicioG {
     width: 85%;
     font-size: 1.1rem;
-  }
-
-  .mail-linkedin {
-    width: 70vw;
   }
 }
 
 /* --- Móviles grandes (pantallas pequeñas) --- */
 @media (max-width: 768px) {
-  .tituloInicio {
+  .tituloInicioG {
     font-size: 38px;
     margin-top: 60px;
   }
 
-  .titulo {
+  .tituloG {
     font-size: 32px;
   }
 
-  .inicio {
+  .inicioG {
     width: 95vw;
     gap: 25px;
   }
 
-  .imgInicio {
+  .imgInicioG {
     flex: 0 0 90%;
   }
 
-  .imgInicio img {
+  .imgInicioG img {
     max-width: 400px;
   }
 
-  .textoInicio {
+  .textoInicioG {
     width: 90%;
     font-size: 1rem;
     padding: 20px;
-  }
-
-  .mail-linkedin {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-  }
-
-  .mail,
-  .linkedin,
-  .github {
-    font-size: x-large;
   }
 }
 
 /* --- Móviles pequeños (pantallas muy estrechas) --- */
 @media (max-width: 480px) {
-  .tituloInicio {
+  .tituloInicioG {
     font-size: 28px;
     margin-top: 40px;
   }
 
-  .titulo {
+  .tituloG {
     font-size: 24px;
   }
 
-  .imgInicio img {
+  .imgInicioG img {
     max-width: 300px;
   }
 
-  .textoInicio {
+  .textoInicioG {
     width: 95%;
     font-size: 0.95rem;
-  }
-
-  .mail-linkedin {
-    width: 100%;
-    gap: 15px;
-  }
-
-  .mail,
-  .linkedin,
-  .github {
-    font-size: large;
   }
 }
