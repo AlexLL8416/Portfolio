@@ -3,7 +3,7 @@ import { useLocation, Routes, Route, href } from "react-router-dom"
 import './App.css'
 import ProfileCard from './componets/ProfileCard'
 import avatarGra from "./assets/avatarGrande.webp"
-import avatarPeq from "./assets/avatar.webp"
+import avatarPeq from "./assets/Avatar.webp"
 import LightRays from './componets/LightRays.jsx'
 import InfiniteCarousel from './componets/InfiniteCarousel.jsx'
 import MagnetLines from './componets/MagnetLines.jsx'
