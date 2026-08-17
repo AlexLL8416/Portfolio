@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Opcional: Si en el futuro compras un dominio y le pones un sitemap, lo añadirías aquí así:
+# Sitemap: https://tudominio.com/sitemap.xml
