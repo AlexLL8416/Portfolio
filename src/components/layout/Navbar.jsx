@@ -11,7 +11,7 @@ export const Navbar = ({
         { label: 'Habilidades', link: '#habilidades' },
         { label: 'Proyectos', link: '#proyectos' },
         { label: 'Certificaciones', link: '#certificaciones' },
-        { label: 'Estudios', link: '#academia' },
+        { label: 'Estudios', link: '#estudios' },
         { label: 'Contacto', link: '#contacto' }
     ],
     socialItems = [
@@ -319,7 +319,7 @@ export const Navbar = ({
     return (
         <>
             <header
-                className="fixed top-0 left-0 w-full z-50 bg-[#0F172A]/70 backdrop-blur-md border-b border-white/[0.05]"
+                className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-md border-b border-white/5"
                 style={accentColor ? { '--sm-accent': accentColor } : undefined}
             >
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -410,7 +410,7 @@ export const Navbar = ({
                                 <li className="relative overflow-hidden leading-none" key={it.label + idx}>
                                     <a
                                         // Texto cambiado a slate-900 (oscuro) para contrastar con el fondo blanco
-                                        className="relative text-slate-900 font-bold text-4xl sm:text-5xl cursor-pointer leading-none tracking-tight uppercase no-underline inline-block pr-[1.4em] transition-colors hover:text-[var(--sm-accent)]"
+                                        className="relative text-slate-900 font-bold text-4xl sm:text-5xl cursor-pointer leading-none tracking-tight uppercase no-underline inline-block pr-[1.4em] transition-colors hover:text-(--sm-accent)"
                                         href={it.link}
                                         onClick={closeMenu}
                                         aria-label={it.ariaLabel}
@@ -429,7 +429,7 @@ export const Navbar = ({
 
                     {displaySocials && socialItems && socialItems.length > 0 && (
                         <div className="mt-auto pt-8 flex flex-col gap-3">
-                            <h3 className="m-0 text-sm font-bold uppercase tracking-wider text-[var(--sm-accent)]">Socials</h3>
+                            <h3 className="m-0 text-sm font-bold uppercase tracking-wider text-(--sm-accent)">Socials</h3>
                             <ul className="list-none m-0 p-0 flex flex-row items-center gap-4 flex-wrap">
                                 {socialItems.map((s, i) => (
                                     <li key={s.label + i}>
@@ -438,7 +438,7 @@ export const Navbar = ({
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             // Links cambiados a slate-600 para que se lean sobre blanco
-                                            className="text-sm font-medium text-slate-600 hover:text-[var(--sm-accent)] no-underline transition-colors"
+                                            className="text-sm font-medium text-slate-600 hover:text-(--sm-accent) no-underline transition-colors"
                                         >
                                             {s.label}
                                         </a>

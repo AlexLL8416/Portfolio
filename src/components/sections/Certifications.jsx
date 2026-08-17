@@ -2,6 +2,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { SiFreecodecamp } from 'react-icons/si';
 import { FaMicrosoft } from "react-icons/fa";
 import { TbBrandCSharp } from "react-icons/tb";
+import { motion } from 'framer-motion';
 
 
 // Centralizamos los datos para que puedas añadir más en el futuro fácilmente
@@ -24,12 +25,17 @@ const Certifications = () => {
         <section id="certificaciones" className="w-full flex flex-col items-center px-6 relative z-10 gap-6 pt-12 pb-32">
 
             {/* TÍTULO DE SECCIÓN */}
-            <div className="max-w-5xl w-full">
+            <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, type: "spring", bounce: 0.2, delay: 0 }}
+                className="max-w-5xl w-full">
                 <p className="text-accent font-mono tracking-widest uppercase text-sm md:text-base flex items-center gap-4">
                     <span className="w-12 h-px bg-accent opacity-50"></span>
                     04. Certificaciones
                 </p>
-            </div>
+            </motion.div>
 
             <div className="glass-card max-w-5xl w-full p-8 md:p-12">
 

@@ -11,6 +11,7 @@ import {
     SiPostgresql, SiMariadb, SiDotnet, SiFastapi, SiOpencv
 } from 'react-icons/si';
 import { TbBrandCSharp } from "react-icons/tb";
+import { motion } from 'framer-motion';
 
 
 // Centralizamos los datos. Si mañana aprendes algo nuevo, solo lo añades aquí.
@@ -84,12 +85,17 @@ const Skills = () => {
         <section id="habilidades" className="w-full flex flex-col items-center px-6 relative z-10 gap-6 pt-12 pb-32">
 
             {/* TÍTULO DE SECCIÓN */}
-            <div className="max-w-5xl w-full">
+            <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, type: "spring", bounce: 0.2, delay: 0 }}
+                className="max-w-5xl w-full">
                 <p className="text-accent font-mono tracking-widest uppercase text-sm md:text-base flex items-center gap-4">
                     <span className="w-12 h-px bg-accent opacity-50"></span>
                     02. Habilidades
                 </p>
-            </div>
+            </motion.div>
 
             {/* TARJETA GLASSMORPHISM */}
             <div className="glass-card max-w-5xl w-full p-8 md:p-12 space-y-16">
@@ -104,7 +110,12 @@ const Skills = () => {
                         </h3>
 
                         {/* Cuadrícula: 2 columnas en móvil, 4 en ordenador */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mt-12">
+                        <motion.div
+                            initial={{ opacity: 0, x: -100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 1, type: "spring", bounce: 0.2, delay: 0 }}
+                            className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mt-12">
 
                             {group.items.map((skill, skillIndex) => (
                                 // Cada elemento es una columna flexible que empuja la barra hacia abajo
@@ -131,7 +142,7 @@ const Skills = () => {
 
                                 </div>
                             ))}
-                        </div>
+                        </motion.div>
 
                     </div>
                 ))}

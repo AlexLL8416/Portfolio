@@ -1,16 +1,22 @@
 import { FaArrowRight, FaDownload, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa6';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
     return (
         // min-h-screen asegura que ocupe el 100% del alto de la pantalla inicial
         <section id="inicio" className="min-h-screen flex flex-col items-center justify-center px-6 py-6 relative z-10 gap-6 md:mt-0 mt-20">
 
-            <div className='max-w-5xl w-full'>
+            <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, type: "spring", bounce: 0.2, delay: 0 }} 
+                className='max-w-5xl w-full'>
                 <p className="text-accent font-mono tracking-widest uppercase text-sm md:text-base flex items-center gap-4">
                     <span className="w-12 h-px bg-accent opacity-50"></span>
                     01. INICIO
                 </p>
-            </div>
+            </motion.div>
 
             {/* Tarjeta principal con nuestro estilo de Tailwind personalizado */}
             <div className="glass-card max-w-8xl w-full p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 lg:gap-32 md:gap-32">
