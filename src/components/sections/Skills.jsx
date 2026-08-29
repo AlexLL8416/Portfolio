@@ -19,7 +19,7 @@ const skillsData = [
     {
         category: "LENGUAJES DE PROGRAMACIÓN",
         items: [
-            { name: "C#", icon: TbBrandCSharp, level: "90%" },
+            { name: "C#", icon: TbBrandCSharp, level: "93%" },
             { name: "Python", icon: FaPython, level: "95%" },
             { name: "Java", icon: FaJava, level: "80%" },
             { name: "JavaScript", icon: SiJavascript, level: "75%" },
@@ -32,9 +32,9 @@ const skillsData = [
     {
         category: "FRAMEWORKS & DESARROLLO",
         items: [
-            { name: ".NET 8", icon: SiDotnet, level: "90%" },
+            { name: ".NET 8", icon: SiDotnet, level: "92%" },
             { name: "FastAPI", icon: SiFastapi, level: "85%" },
-            { name: "React", icon: FaReact, level: "80%" },
+            { name: "React", icon: FaReact, level: "85%" },
             { name: "OpenCV", icon: SiOpencv, level: "70%" },
             { name: "HTML", icon: FaHtml5, level: "95%" },
             { name: "Odoo", icon: FaCubes, level: "70%" },
@@ -55,8 +55,8 @@ const skillsData = [
         category: "CONCEPTOS & HERRAMIENTAS",
         items: [
             { name: "Inteligencia Artificial", icon: FaBrain, level: "85%" },
-            { name: "Diseño de APIs", icon: FaPlug, level: "90%" },
-            { name: "Lógica Difusa / Grafos", icon: FaNetworkWired, level: "75%" },
+            { name: "Diseño de APIs", icon: FaPlug, level: "95%" },
+            { name: "Lógica Difusa / Grafos", icon: FaNetworkWired, level: "85%" },
             { name: "Resolución Compleja", icon: FaPuzzlePiece, level: "95%" }
         ]
     },

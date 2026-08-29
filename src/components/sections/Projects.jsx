@@ -4,6 +4,7 @@ import imgGestorAlimentos from '../../assets/gestor_alimentos.webp'
 import imgHandMouse from '../../assets/hand_mouse.webp'
 import imgSaaSPeluqeuria from '../../assets/saas_peluqueria.webp'
 import imgPortfolio from '../../assets/portfolio.webp'
+import imgProcessMiner from '../../assets/process_miner.webp'
 import { motion } from 'framer-motion';
 
 const projectsData = [
@@ -20,7 +21,7 @@ const projectsData = [
         description: "Control del ratón del ordenador mediante la webcam y gestos de la mano. Incluye calibración automática de usuario, movimiento del cursor y detección de clics mediante visión artificial.",
         image: imgHandMouse, // Añade una captura de la cámara detectando tu mano en public/
         tags: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI"],
-        githubUrl: "https://github.com/TU_USUARIO/hand-mouse",
+        githubUrl: "https://github.com/AlexLL8416/Hand_Mouse",
         liveUrl: "", // Aplicación de escritorio, no tiene demo web
     },
     {
@@ -44,9 +45,17 @@ const projectsData = [
         description: "El sitio web que estás visitando. Construido con una arquitectura modular y responsive en React, animaciones asimétricas con GSAP, diseño Glassmorphism y un ecosistema matemático simulado en Canvas 2D.",
         image: imgPortfolio,
         tags: ["React", "GSAP", "TailwindCSS", "Vite"],
-        githubUrl: "https://github.com/AlexLL8416/Portfolio", // Pon tu enlace real al repo
+        githubUrl: "https://github.com/AlexLL8416/Portfolio",
         liveUrl: "#inicio",
-    }
+    },
+    {
+        title: "ProcessMiner",
+        description: "Motor analítico de minería de procesos industriales en streaming. Diseñado con una arquitectura híbrida (Backend .NET 8 en contenedores Docker sobre Render y Frontend SPA en Vercel), capaz de procesar archivos de eventos XES masivos mediante evaluación perezosa para optimizar recursos. Integra algoritmos de descubrimiento como Alpha Miner y Heuristic Miner, análisis de variantes y métricas de rendimiento en tiempo real.",
+        image: imgProcessMiner, 
+        tags: ["C#", ".NET 8", "React", "TailwindCSS", "Process Mining", "Docker"],
+        githubUrl: "https://github.com/AlexLL8416/ProcessMiner",
+        liveUrl: "https://process-miner-tau.vercel.app/", 
+    },
 ];
 
 const Projects = () => {
