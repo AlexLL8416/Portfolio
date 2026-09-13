@@ -5,6 +5,7 @@ import imgHandMouse from '../../assets/hand_mouse.webp'
 import imgSaaSPeluqeuria from '../../assets/saas_peluqueria.webp'
 import imgPortfolio from '../../assets/portfolio.webp'
 import imgProcessMiner from '../../assets/process_miner.webp'
+import imgAudioAutoSwitcher from '../../assets/audio_auto_switcher.webp'
 import { motion } from 'framer-motion';
 
 const projectsData = [
@@ -27,7 +28,7 @@ const projectsData = [
     {
         title: "Audio Auto Switcher",
         description: "Herramienta de sistema que automatiza el cambio rápido y la gestión de dispositivos de entrada y salida de audio en entornos Windows. Disponible un instalador para cualquier tipo de dispositivo Windows.",
-        image: "https://media.licdn.com/dms/image/v2/D4E22AQGPYkuQ4uS6nQ/feedshare-shrink_800/B4EZx3IycQGsAk-/0/1771525318819?e=1788393600&v=beta&t=tSkcixuN7N5M_NsLIumLnLiTX0BmU28dmndzJPIhFEI",
+        image: imgAudioAutoSwitcher,
         tags: ["C#", "Windows API", ".NET", "WPF"],
         githubUrl: "https://github.com/AlexLL8416/Audio-Auto-Switcher",
         liveUrl: "", // Si no hay demo web, dejamos el string vacío

@@ -3,16 +3,15 @@ import { SiFreecodecamp } from 'react-icons/si';
 import { FaMicrosoft } from "react-icons/fa";
 import { TbBrandCSharp } from "react-icons/tb";
 import { motion } from 'framer-motion';
+import imgFoundationalCsharp from '../../assets/foundational_csharp.webp';
 
-
-// Centralizamos los datos para que puedas añadir más en el futuro fácilmente
 const certsData = [
     {
         title: "Foundational C# with Microsoft",
         issuer: "freeCodeCamp",
         partner: "Microsoft",
         url: "https://www.freecodecamp.org/certification/alejandro_lara_lara/foundational-c-sharp-with-microsoft",
-        image: "https://media.licdn.com/dms/image/v2/D4E22AQFDqV2PTe7Zbw/feedshare-shrink_800/B4EZxsPDBIIkAg-/0/1771342410145?e=1788393600&v=beta&t=yozwgxLXdyhkl86WxQ2SSZtx9jxg24iRGN9vWqL6NNM",
+        image: imgFoundationalCsharp,
         mainIcon: TbBrandCSharp,
         partnerIcon: FaMicrosoft,
         issuerIcon: SiFreecodecamp,
