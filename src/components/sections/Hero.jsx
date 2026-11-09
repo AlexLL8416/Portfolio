@@ -1,121 +1,79 @@
-import { FaArrowRight, FaDownload, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa6';
-import { motion } from 'framer-motion';
+import { useLayoutEffect, useRef } from 'react';
+import { SITE, HERO_NODES } from '../../data/content';
+import ContactRows from '../ui/ContactRows';
 
-const Hero = () => {
-    return (
-        // min-h-screen asegura que ocupe el 100% del alto de la pantalla inicial
-        <section id="inicio" className="min-h-screen flex flex-col items-center justify-center px-6 py-6 relative z-10 gap-6 md:mt-0 mt-20">
+// Posición de cada nodo a lo largo de la cinta (0 = inicio del trazo, 1 = final).
+const NODE_T = [0.07, 0.17, 0.27, 0.37, 0.46];
 
-            <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1, type: "spring", bounce: 0.2, delay: 0 }} 
-                className='max-w-5xl w-full'>
-                <p className="text-accent font-mono tracking-widest uppercase text-sm md:text-base flex items-center gap-4">
-                    <span className="w-12 h-px bg-accent opacity-50"></span>
-                    01. INICIO
-                </p>
-            </motion.div>
+const Hero = ({ onPickTag }) => {
+  const heroRef = useRef(null);
+  const pathRef = useRef(null);
+  const nodeRefs = useRef([]);
 
-            {/* Tarjeta principal con nuestro estilo de Tailwind personalizado */}
-            <div className="glass-card max-w-8xl w-full p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 lg:gap-32 md:gap-32">
+  // Coloca los nodos sobre la cinta en escritorio; en móvil van en una fila normal (CSS).
+  useLayoutEffect(() => {
+    const wide = window.matchMedia('(min-width: 861px)');
+    const place = () => {
+      const hero = heroRef.current, path = pathRef.current;
+      if (!hero || !path) return;
+      const L = path.getTotalLength(), { width, height } = hero.getBoundingClientRect();
+      nodeRefs.current.forEach((n, i) => {
+        if (!n) return;
+        if (!wide.matches) { n.style.left = n.style.top = ''; return; }
+        const p = path.getPointAtLength(L * NODE_T[i]);
+        n.style.left = `${(p.x / 1440) * width}px`;
+        n.style.top = `${(p.y / 900) * height}px`;
+      });
+    };
+    place();
+    window.addEventListener('resize', place);
+    wide.addEventListener('change', place);
+    document.fonts?.ready.then(place);
+    return () => { window.removeEventListener('resize', place); wide.removeEventListener('change', place); };
+  }, []);
 
-                {/* COLUMNA IZQUIERDA: Foto de perfil */}
-                <div className="shrink-0">
-                    {/* Contenedor de la imagen con bordes redondeados y un sutil borde gris */}
-                    <div className="w-62 h-75 mt-2 md:w-88 md:h-104 rounded-xl overflow-hidden border border-surfaceBorder bg-surface flex items-center justify-center shadow-xl">
-                        <img
-                            src="/foto-perfil.webp"
-                            alt="Alejandro Lara Lara"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                </div>
+  return (
+    <section className="hero wrap" id="inicio" ref={heroRef}>
+      <svg className="curve" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+        <path ref={pathRef} pathLength="1" d="M-40 868C420 884 760 858 920 720S1090 250 1210 110S1400 -10 1500 -40" stroke="#A9C7E3" strokeWidth="30" opacity=".8" />
+        <path pathLength="1" d="M-40 900C440 912 800 884 960 750S1130 290 1250 150S1420 30 1500 0" stroke="#6F86A3" strokeWidth="8" opacity=".55" />
+      </svg>
 
-                {/* COLUMNA DERECHA: Textos y Botones */}
-                <div className="space-y-6 text-center md:text-left flex-1">
+      <div className="hero-text">
+        <h1 className="name"><span><i>Alejandro</i></span><span><i>Lara Lara</i></span></h1>
+        <p className="role">{SITE.degree}</p>
+        <p className="seek">Busco prácticas en <mark>inteligencia artificial</mark> a partir de enero de 2027.</p>
+        <div className="actions">
+          <a className="btn" href="#proyectos">Ver proyectos</a>
+          <a className="btn soft" href={SITE.cv} target="_blank" rel="noopener noreferrer">Descargar CV</a>
+        </div>
+        <ContactRows />
+      </div>
 
-                    <div className="space-y-2">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
-                            Alejandro Lara Lara
-                        </h1>
-                        {/* Usamos font-mono para darle el toque técnico al título de la carrera */}
-                        <h2 className="text-lg md:text-xl text-accent font-mono tracking-tight">
-                            Doble Grado en Ingeniería Informática + Matemáticas
-                        </h2>
-                    </div>
+      <figure className="portrait">
+        <img src={SITE.photo} alt="Retrato de Alejandro Lara Lara" width="476" height="600" fetchPriority="high" />
+        <a className="now" href="#sobre-mi"><small>Ahora mismo · TFG</small><b>{SITE.tfg.short}</b></a>
+      </figure>
 
-                    <p className="text-secondary leading-relaxed text-sm md:text-base max-w-2xl mx-auto md:mx-0">
-                        Estudiante del Doble Grado en Ingeniería Informática y Matemáticas.
-                        Me apasiona la Inteligencia Artificial y disfruto explorando cómo la tecnología puede
-                        resolver problemas complejos y abrir nuevas oportunidades.
-
-                        Me considero una persona autodidacta, perseverante y comprometida con cada proyecto.
-                        Trabajo con soltura tanto en equipo como de manera independiente, siempre con la determinación
-                        de alcanzar los objetivos que me propongo.
-                    </p>
-
-                    {/* Botones */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-2">
-
-                        <a
-                            href="#proyectos"
-                            className="flex items-center justify-center gap-2 px-6 py-3 w-full sm:w-auto bg-accent text-white rounded-lg font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-900/20"
-                        >
-                            Ver Proyectos <FaArrowRight />
-                        </a>
-
-                        <a
-                            href="/CV_Alejandro_Lara.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 px-6 py-3 w-full sm:w-auto rounded-lg font-medium text-secondary border border-surfaceBorder hover:text-primary hover:bg-surface transition-all"
-                        >
-                            <FaDownload /> Descargar CV
-                        </a>
-
-                        <div className="flex items-center gap-5 w-full md:ml-5 sm:w-auto justify-center mt-4 sm:mt-0">
-
-                            {/* LinkedIn */}
-                            <a
-                                href="https://linkedin.com/in/alejandro-lara-lara-461841384"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 rounded-lg text-secondary border border-surfaceBorder hover:text-primary hover:border-accent hover:bg-accent/10 transition-all group"
-                                aria-label="Perfil de LinkedIn"
-                            >
-                                <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
-                            </a>
-
-                            {/* GitHub */}
-                            <a
-                                href="https://github.com/AlexLL8416"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 rounded-lg text-secondary border border-surfaceBorder hover:text-primary hover:border-accent hover:bg-accent/10 transition-all group"
-                                aria-label="Perfil de GitHub"
-                            >
-                                <FaGithub className="text-xl group-hover:scale-110 transition-transform" />
-                            </a>
-
-                            {/* Correo Electrónico */}
-                            <a
-                                href="mailto:laralaraalejandro8416@gmail.com"
-                                className="p-3 rounded-lg text-secondary border border-surfaceBorder hover:text-primary hover:border-accent hover:bg-accent/10 transition-all group"
-                                aria-label="Enviar correo electrónico"
-                            >
-                                <FaEnvelope className="text-xl group-hover:scale-110 transition-transform" />
-                            </a>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    );
+      <ul className="nodes" aria-label="Ver proyectos por tecnología">
+        <li className="cap">Ver proyectos por tecnología</li>
+        {HERO_NODES.map((t, i) => (
+          <li key={t}>
+            <button
+              type="button"
+              className="node"
+              style={{ '--i': i }}
+              ref={(el) => (nodeRefs.current[i] = el)}
+              onClick={() => onPickTag(t)}
+              aria-label={`Ver proyectos con ${t}`}
+            >
+              {t}<span>{SITE.projects.filter((p) => p.tags.includes(t)).length}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 };
 
 export default Hero;

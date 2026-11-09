@@ -1,44 +1,202 @@
 @import "tailwindcss";
 
-/* 1. Nuesto Sistema de Diseño Tech-Sobrio */
-@theme {
-  --color-background: #0F172A;
-  --color-surface: rgba(30, 41, 59, 0.45);
-  --color-surface-border: rgba(255, 255, 255, 0.05);
-  --color-primary: #F8FAFC;
-  --color-secondary: #94A3B8;
-  --color-accent: #3B82F6;
-  
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "Fira Code", "JetBrains Mono", monospace;
+/* Diseño "Papel": paleta y tipografía de la tarjeta de contacto.
+   Marino #1E3A5F, azul claro #A9C7E3, pizarra #6F86A3, papel #F1EEE7.
+   Roboto normal para el nombre y los títulos grandes, condensada (font-stretch) para el resto. */
+:root {
+  --bg: #F1EEE7; --bg2: #E7E3DA; --ink: #17191E; --muted: #555A63; --head: #1E3A5F;
+  --acc: #1E3A5F; --acc-h: #0F2A4E; --acc-ink: #fff; --soft: #A9C7E3; --soft-h: #97BADB; --soft-ink: #0F2A4E;
+  --chip: #D3E2F0; --chip-ink: #0F2A4E; --link: #1E3A5F; --link-h: #3D6699; --field: #FBFAF7;
+  --m: clamp(16px, 3vw, 40px); --gap: clamp(96px, 13vw, 184px); --ease: cubic-bezier(.16, 1, .3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0 }
+html { scroll-behavior: smooth; scroll-padding-top: 72px }
+body { background: var(--bg); color: var(--ink); font: 400 17px/1.6 Roboto, system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip }
+::selection { background: #A9C7E3; color: #0F2A4E }
+a { color: inherit; text-underline-offset: .2em }
+img, svg { display: block; max-width: 100% }
+:focus-visible { outline: 3px solid #3D6699; outline-offset: 3px }
+.skip { position: absolute; left: -999px }
+.skip:focus { left: var(--m); top: 8px; z-index: 9; background: var(--acc); color: var(--acc-ink); padding: 8px 12px }
+.wrap { padding-inline: var(--m) }
+h1, h2, h3 { color: var(--head); font-weight: 800; line-height: .92; text-wrap: balance }
+h2 { font-size: clamp(36px, 9.5vw, 148px); text-transform: uppercase; letter-spacing: -.005em; overflow-wrap: anywhere }
+h3 { font-size: clamp(24px, 2.8vw, 38px); font-stretch: 75%; font-weight: 700; line-height: 1.05 }
+section { margin-top: var(--gap) }
+
+/* barra superior */
+.topbar { position: sticky; top: 0; z-index: 5; background: var(--bg); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px var(--m) }
+.mark { font-weight: 800; color: var(--head); text-transform: uppercase; font-size: 18px; text-decoration: none; letter-spacing: .02em; white-space: nowrap }
+.topbar nav ul { display: flex; gap: 28px; list-style: none; padding: 0 }
+.topbar nav a { text-decoration: none; color: var(--muted); font-stretch: 85%; font-size: 16px; transition: color .2s }
+.topbar nav a:hover { color: var(--head) }
+.btn { display: inline-flex; align-items: center; gap: .5em; padding: 14px 24px; border-radius: 999px; background: var(--acc); color: var(--acc-ink); font-weight: 600; text-decoration: none; border: 0; font-size: 16px; cursor: pointer; transition: transform .2s var(--ease), background .2s }
+.btn:hover { background: var(--acc-h) }
+.btn:active { transform: scale(.97) }
+.btn:disabled { opacity: .6; cursor: progress }
+.btn.soft { background: var(--soft); color: var(--soft-ink) }
+.btn.soft:hover { background: var(--soft-h) }
+.btn.sm { padding: 10px 18px; font-size: 15px }
+@media (max-width: 1000px) { .topbar nav li:not(.keep) { display: none } .topbar nav ul { gap: 18px } }
+@media (max-width: 560px) { .topbar .btn { display: none } }
+
+/* inicio: primera pantalla completa. La cinta azul pasa por debajo del texto y sube detrás de la foto;
+   sobre ella van las tecnologías como nodos de un grafo (guiño al TFG de GraphRAG) que filtran los proyectos. */
+.hero { position: relative; min-height: calc(100svh - 72px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 72px); align-items: center; padding-block: clamp(24px, 3.5vw, 48px) clamp(120px, 11vw, 168px); margin-top: 0; isolation: isolate }
+.hero-text { display: grid; gap: clamp(18px, 2vw, 28px); justify-items: start; min-width: 0 }
+.name { font-size: clamp(40px, 8.6vw, 158px); text-transform: uppercase; letter-spacing: .005em; line-height: .88 }
+.name span { display: block; overflow: hidden; padding-bottom: .02em }
+.name span i { display: block; font-style: normal; animation: rise 1.1s var(--ease) both }
+.name span:nth-child(2) i { animation-delay: .08s }
+@keyframes rise { from { transform: translateY(100%) } }
+.role { text-transform: uppercase; font-stretch: 75%; color: var(--head); font-size: clamp(18px, 2vw, 30px); line-height: 1.15; letter-spacing: .01em; margin-top: -4px }
+.seek { font-stretch: 75%; font-weight: 700; color: var(--head); font-size: clamp(22px, 2.35vw, 34px); line-height: 1.15; max-width: 30ch; text-wrap: balance }
+.seek mark { background: none; color: inherit; text-decoration: underline; text-decoration-color: #A9C7E3; text-decoration-thickness: .36em; text-underline-offset: -.2em; text-decoration-skip-ink: none }
+.actions { display: flex; flex-wrap: wrap; gap: 12px }
+
+/* filas de contacto con círculos de color, como en la tarjeta */
+.rows { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; max-width: 100% }
+.rows li { min-width: 0; max-width: 100% }
+.rows a { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; text-decoration: none; font-stretch: 75%; font-size: clamp(17px, 1.4vw, 20px); transition: color .2s }
+.rows a span:last-child { min-width: 0; overflow-wrap: anywhere }
+.rows a:hover { color: var(--link-h) }
+.dot { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; flex: none; transition: transform .2s var(--ease) }
+.rows a:hover .dot { transform: scale(1.08) }
+.dot svg { width: 18px; height: 18px }
+.d1 { background: #0F2A4E; color: #fff }
+.d2 { background: #A9C7E3; color: #0F2A4E }
+.d3 { background: #5F7898; color: #fff }
+
+.portrait { position: relative; justify-self: end; width: 100%; max-width: 500px; background: #A9C7E3; padding: 12px; border-radius: 36px; animation: lift 1.2s .15s var(--ease) both }
+.portrait img { width: 100%; height: min(66svh, 620px); object-fit: cover; object-position: 50% 30%; border-radius: 26px }
+@keyframes lift { from { opacity: 0; transform: translateY(28px) scale(.98) } }
+.now { position: absolute; left: clamp(-40px, -2.5vw, -16px); bottom: 28px; max-width: 280px; background: var(--bg); border-radius: 18px; padding: 14px 18px 16px; text-decoration: none; color: var(--ink); transition: transform .25s var(--ease) }
+.now:hover { transform: translateY(-3px) }
+.now small { display: block; font-stretch: 85%; color: var(--muted); font-size: 14px }
+.now b { display: block; color: var(--head); font-stretch: 75%; font-size: 20px; line-height: 1.15; margin-top: 2px }
+
+.curve { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none }
+.curve path { fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s .2s var(--ease) forwards }
+.curve path + path { animation-delay: .35s }
+@keyframes draw { to { stroke-dashoffset: 0 } }
+.nodes { position: absolute; inset: 0; pointer-events: none; margin: 0; padding: 0; list-style: none }
+.nodes .cap { display: none }
+.node { position: absolute; transform: translate(-50%, -50%); pointer-events: auto; font: inherit; font-stretch: 85%; font-size: 15px; font-weight: 600; color: #0F2A4E; background: var(--bg); border: 2px solid #6F86A3; border-radius: 999px; padding: 6px 14px; cursor: pointer; white-space: nowrap; opacity: 0; animation: pop .5s var(--ease) forwards; animation-delay: calc(1.1s + var(--i) * 90ms); transition: background .2s, color .2s, border-color .2s }
+.node span { color: var(--muted); font-weight: 400; margin-left: 6px }
+.node:hover, .node:focus-visible { background: #1E3A5F; color: #fff; border-color: #1E3A5F }
+.node:hover span, .node:focus-visible span { color: #D3E2F0 }
+@keyframes pop { from { opacity: 0; transform: translate(-50%, -50%) scale(.6) } to { opacity: 1; transform: translate(-50%, -50%) scale(1) } }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; padding-bottom: 24px }
+  .name { font-size: min(13vw, 88px) }
+  .portrait { justify-self: start; max-width: 420px }
+  .portrait img { height: auto; aspect-ratio: 4 / 5 }
+  .now { left: 12px; bottom: 12px; right: 12px; max-width: 280px }
+  .curve { display: none }
+  .nodes { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+  .nodes .cap { display: block; width: 100%; font-stretch: 85%; color: var(--muted); font-size: 15px }
+  .node { position: static; transform: none; animation: none; opacity: 1 }
+}
+@media (min-width: 561px) and (max-width: 860px) {
+  .portrait { max-width: none }
+  .portrait img { aspect-ratio: 16 / 11 }
 }
 
-/* 2. Estilos Globales Base */
-@layer base {
-  html {
-    scroll-behavior: smooth; /* Hace que el movimiento de las anclas sea fluido */
-    scroll-padding-top: 6rem; /* Deja un margen superior igual al alto del Navbar para que no tape el contenido */
-  }
-  
-  body {
-    background-color: var(--color-background);
-    color: var(--color-secondary);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
+/* sobre mí */
+.about { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 72px); margin-top: 40px; align-items: start }
+.about .bio { display: grid; gap: 16px; font-size: clamp(18px, 1.4vw, 20px); max-width: 60ch }
+.tfg { display: grid; gap: 20px; background: #0F2A4E; color: #F1EEE7; padding: clamp(24px, 3.5vw, 48px); border-radius: 24px }
+.tfg h3 { color: inherit; font-size: clamp(28px, 3vw, 42px) }
+.tfg .k { opacity: .8; font-stretch: 85%; margin-top: 8px }
+.tfg .tt { font-size: clamp(20px, 1.8vw, 24px); font-weight: 600; font-stretch: 85%; line-height: 1.25; margin-top: 18px }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr } }
 
-  h1, h2, h3, h4 {
-    color: var(--color-primary);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-  }
-}
+/* proyectos */
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px }
+.filters button { font: inherit; font-size: 15px; font-stretch: 85%; padding: 8px 15px; border-radius: 999px; border: 0; background: var(--bg2); color: var(--head); cursor: pointer; transition: background .2s, color .2s, transform .2s var(--ease) }
+.filters button:hover { background: var(--chip) }
+.filters button:active { transform: scale(.96) }
+.filters button[aria-pressed=true] { background: var(--acc); color: var(--acc-ink) }
+.count { color: var(--muted); font-variant-numeric: tabular-nums }
+.proj { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: clamp(56px, 7vw, 112px); align-items: center; transition: opacity .4s var(--ease) }
+.proj.off { opacity: .2 }
+.proj figure { grid-column: 1 / 8; overflow: hidden; background: var(--bg2); aspect-ratio: 16 / 10; border-radius: 18px }
+.proj figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease) }
+.proj:hover figure img { transform: scale(1.04) }
+.proj .txt { grid-column: 8 / 13 }
+.proj:nth-of-type(even) figure { grid-column: 6 / 13; grid-row: 1 }
+.proj:nth-of-type(even) .txt { grid-column: 1 / 6; grid-row: 1 }
+.proj p { margin-top: 14px }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px }
+.tags span { font-size: 14px; font-stretch: 85%; background: var(--chip); color: var(--chip-ink); padding: 3px 10px; border-radius: 999px }
+.plinks { display: flex; gap: 20px; margin-top: 20px }
+.plinks a, .textlink { font-weight: 600; color: var(--link) }
+.plinks a:hover, .textlink:hover { color: var(--link-h) }
+@media (max-width: 860px) { .proj figure, .proj .txt, .proj:nth-of-type(even) figure, .proj:nth-of-type(even) .txt { grid-column: 1 / -1; grid-row: auto } }
 
-/* 3. Clases de Utilidad Personalizadas (El Glassmorphism) */
-@utility glass-card {
-  background-color: var(--color-surface);
-  backdrop-filter: blur(1px);
-  border: 1px solid var(--color-surface-border);
-  border-radius: 1rem;
+/* habilidades */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(32px, 4vw, 64px) clamp(24px, 3vw, 48px); margin-top: 48px }
+.skills h3 { font-size: 24px; margin-bottom: 12px }
+.skills ul { list-style: none; padding: 0 }
+.skills li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0 }
+.skills li span:last-child { color: var(--muted); font-stretch: 85%; white-space: nowrap }
+.skills li[data-l=Experto] span:last-child { color: var(--head); font-weight: 700 }
+@media (max-width: 960px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 560px) { .skills { grid-template-columns: 1fr } }
+
+/* certificaciones: filas con fecha, título y enlace */
+.certs { list-style: none; padding: 0; margin-top: 48px; border-top: 2px solid var(--soft) }
+.certs li { display: grid; grid-template-columns: clamp(160px, 18vw, 260px) minmax(0, 1fr) auto; gap: 12px clamp(16px, 3vw, 48px); align-items: center; padding: 24px 0; border-bottom: 2px solid var(--soft) }
+.certs img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--chip); border-radius: 10px; padding: 8px }
+.certs h3 { font-size: clamp(22px, 2.2vw, 30px); margin-top: 6px }
+.issuer { color: var(--muted); margin-top: 6px }
+.certs .textlink { margin-top: 0; white-space: nowrap }
+@media (max-width: 700px) { .certs li { grid-template-columns: 1fr } .certs img { max-width: 420px } }
+
+/* estudios: los cinco cursos pasan del azul claro al marino, como avanza la carrera */
+.edu-intro { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); margin-top: 40px }
+.degree { font-size: clamp(26px, 2.8vw, 40px); font-stretch: 75%; font-weight: 700; color: var(--head); line-height: 1.05; text-wrap: balance }
+.period { font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums }
+@media (max-width: 860px) { .edu-intro { grid-template-columns: 1fr } }
+.years { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 48px; list-style: none; padding: 0 }
+.year { padding: 24px 20px 28px; border-radius: 18px; color: var(--ink) }
+.year:nth-child(1) { background: #D3E2F0 }
+.year:nth-child(2) { background: #A9C7E3 }
+.year:nth-child(3) { background: #8FB0D4 }
+.year:nth-child(4) { background: #5F7898; color: #fff }
+.year:nth-child(5) { background: #1E3A5F; color: #fff }
+.year h3, .year .period { color: inherit }
+.year h3 { font-size: 26px; margin: 6px 0 4px }
+.year .yt { font-weight: 600; margin-bottom: 14px; font-stretch: 85% }
+.year ul { padding-left: 1.1em; display: grid; gap: 6px; font-size: 15px; line-height: 1.4; list-style: disc }
+@media (max-width: 1100px) { .years { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 560px) { .years { grid-template-columns: 1fr } }
+.textlink { display: inline-block; margin-top: 18px }
+
+/* contacto */
+.contact { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 72px); margin-top: 40px }
+.contact p { max-width: 52ch }
+.contact .rows { margin-top: 28px; flex-direction: column }
+.contact form { display: grid; gap: 18px }
+.contact label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; color: var(--head) }
+.contact input, .contact textarea { font: inherit; font-weight: 400; color: var(--ink); background: var(--field); border: 2px solid var(--bg2); padding: 13px 14px; border-radius: 12px; transition: border-color .2s; width: 100% }
+.contact input:focus, .contact textarea:focus { outline: none; border-color: #3D6699 }
+.contact ::placeholder { color: var(--muted); opacity: .85 }
+.status { min-height: 1.5em; color: var(--muted) }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr } }
+
+footer.site-foot { margin-top: var(--gap); padding: 0 var(--m) 28px; overflow: hidden }
+footer.site-foot .big { font-size: clamp(48px, 10.4vw, 190px); font-weight: 800; line-height: .85; text-transform: uppercase; color: #3D6699 }
+footer.site-foot small { display: block; color: var(--muted); margin-top: 16px; font-size: 14px }
+
+/* entradas al hacer scroll: solo si el script corre (clase .js) y nunca con movimiento reducido */
+.js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 70ms) }
+.js [data-reveal].in { opacity: 1; transform: none }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important }
+  html { scroll-behavior: auto }
+  .curve path { stroke-dashoffset: 0 }
+  .node, .portrait { opacity: 1 }
 }
