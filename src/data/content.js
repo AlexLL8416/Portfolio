@@ -5,6 +5,7 @@ import imgHandMouse from '../assets/hand_mouse.webp';
 import imgAudioAutoSwitcher from '../assets/audio_auto_switcher.webp';
 import imgGestorAlimentos from '../assets/gestor_alimentos.webp';
 import imgPortfolio from '../assets/portfolio.webp';
+import imgPassMark from '../assets/pass_mark.webp';
 import imgFoundationalCsharp from '../assets/foundational_csharp.webp';
 import imgCertColumbia from '../assets/cert_columbia.webp';
 import imgCertAzureSql from '../assets/cert_azure_sql.webp';
@@ -51,6 +52,10 @@ export const SITE = {
       description: 'Sistema integral en la nube para la gestión de reservas, clientes y control de productos especializado en peluquerías.',
       tags: ['React', 'SQL', 'Supabase', 'TailwindCSS'],
       github: 'https://github.com/AlexLL8416/peluqueria-web', live: 'https://peluqueria-web-nine.vercel.app/' },
+    { title: 'Pass Mark', image: imgPassMark,
+      description: 'Web para practicar los exámenes de Cambridge English, de A1 Movers a C2 Proficiency, con tu propio PDF. El examen se abre en un visor propio con pdf.js junto a la hoja de respuestas oficial de cada nivel, con cronómetro y reproductor para el Listening. Al pegar la clave corrige al momento con puntuación ponderada por partes. Sin registro: todo se guarda en el navegador.',
+      tags: ['React', 'TypeScript', 'TailwindCSS', 'pdf.js', 'IndexedDB', 'Vitest'],
+      github: '', live: 'https://pass-mark-two.vercel.app/' }, // repo privado: sin enlace al código
     { title: 'Hand Mouse', image: imgHandMouse,
       description: 'Control del ratón del ordenador mediante la webcam y gestos de la mano. Incluye calibración automática de usuario, movimiento del cursor y detección de clics mediante visión artificial.',
       tags: ['Python', 'OpenCV', 'MediaPipe', 'PyAutoGUI'],

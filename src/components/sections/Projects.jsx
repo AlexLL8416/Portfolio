@@ -28,7 +28,7 @@ const Projects = ({ tag, setTag }) => {
             <p>{p.description}</p>
             <div className="tags">{p.tags.map((t) => <span key={t}>{t}</span>)}</div>
             <div className="plinks">
-              <a href={p.github} target="_blank" rel="noopener noreferrer">Código ↗</a>
+              {p.github && <a href={p.github} target="_blank" rel="noopener noreferrer">Código ↗</a>}
               {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer">Demo en vivo ↗</a>}
             </div>
           </div>
