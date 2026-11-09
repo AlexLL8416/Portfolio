@@ -146,12 +146,13 @@ section { margin-top: var(--gap) }
 @media (max-width: 960px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
 @media (max-width: 560px) { .skills { grid-template-columns: 1fr } }
 
-/* certificación */
-.cert { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: center; margin-top: 48px; background: var(--chip); padding: clamp(20px, 3vw, 40px); border-radius: 24px }
-.cert img { width: 100%; border-radius: 10px }
-.issuer { color: var(--muted); margin-top: 10px }
-.cert p.d { margin: 16px 0 28px }
-@media (max-width: 860px) { .cert { grid-template-columns: 1fr } }
+/* certificaciones: filas con fecha, título y enlace */
+.certs { list-style: none; padding: 0; margin-top: 48px; border-top: 2px solid var(--soft) }
+.certs li { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 8px clamp(16px, 3vw, 48px); align-items: baseline; padding: 24px 0; border-bottom: 2px solid var(--soft) }
+.certs h3 { font-size: clamp(22px, 2.2vw, 30px) }
+.issuer { color: var(--muted); margin-top: 6px }
+.certs .textlink { margin-top: 0; white-space: nowrap }
+@media (max-width: 700px) { .certs li { grid-template-columns: 1fr } }
 
 /* estudios: los cinco cursos pasan del azul claro al marino, como avanza la carrera */
 .edu-intro { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); margin-top: 40px }

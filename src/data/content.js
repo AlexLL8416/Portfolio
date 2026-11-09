@@ -5,7 +5,6 @@ import imgHandMouse from '../assets/hand_mouse.webp';
 import imgAudioAutoSwitcher from '../assets/audio_auto_switcher.webp';
 import imgGestorAlimentos from '../assets/gestor_alimentos.webp';
 import imgPortfolio from '../assets/portfolio.webp';
-import imgFoundationalCsharp from '../assets/foundational_csharp.webp';
 
 export const SITE = {
   name: 'Alejandro Lara Lara',
@@ -62,12 +61,17 @@ export const SITE = {
       tags: ['React', 'TailwindCSS', 'Vite'],
       github: 'https://github.com/AlexLL8416/Portfolio', live: '' },
   ],
-  cert: {
-    title: 'Foundational C# with Microsoft', issuer: 'freeCodeCamp', partner: 'Microsoft',
-    url: 'https://www.freecodecamp.org/certification/alejandro_lara_lara/foundational-c-sharp-with-microsoft',
-    image: imgFoundationalCsharp,
-    description: 'Credencial oficial que certifica los fundamentos de desarrollo, sintaxis, depuración y orientación a objetos en C#, emitido en colaboración directa con Microsoft.',
-  },
+  // De LinkedIn, la más reciente primero. url vacía = la credencial no tiene enlace público.
+  certs: [
+    { title: 'Prompt Engineering & Programming with OpenAI', issuer: 'Columbia University', date: 'Oct. 2026', url: '' },
+    { title: 'Desarrollo de aplicaciones controladas por datos con Azure SQL Database', issuer: 'Microsoft Applied Skills', date: 'Oct. 2026', url: 'https://learn.microsoft.com/api/credentials/share/es-es/AlejandroLaraLara-0633/408A878392E45F14?sharingId' },
+    { title: 'Integrar herramientas MCP con agentes en Microsoft Foundry', issuer: 'Microsoft Applied Skills', date: 'Oct. 2026', url: 'https://learn.microsoft.com/api/credentials/share/es-es/AlejandroLaraLara-0633/585A829382A5D1EC?sharingId' },
+    { title: 'Desarrollo de un agente con herramientas integradas', issuer: 'Microsoft Applied Skills', date: 'Oct. 2026', url: 'https://learn.microsoft.com/api/credentials/share/es-es/AlejandroLaraLara-0633/5C96F8D33C064CA5?sharingId' },
+    { title: 'Databricks AI Agent Fundamentals', issuer: 'Databricks', date: 'Oct. 2026', url: '' },
+    { title: 'B2 First, Grade A (nivel C1)', issuer: 'Cambridge English', date: 'Sept. 2026', url: '' },
+    { title: 'Foundational C# with Microsoft', issuer: 'freeCodeCamp y Microsoft', date: 'Feb. 2026',
+      url: 'https://www.freecodecamp.org/certification/alejandro_lara_lara/foundational-c-sharp-with-microsoft' },
+  ],
   education: {
     title: 'Doble Grado en Ingeniería Informática y Matemáticas',
     meta: '360 ECTS · 5 cursos académicos',
